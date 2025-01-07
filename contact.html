@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Developers</title>
+    <link rel="icon" href="pic/logo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        window.tailwind.config = {
+            darkMode: ['class'],
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'hsl(var(--border))',
+                        input: 'hsl(var(--input))',
+                        ring: 'hsl(var(--ring))',
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: {
+                            DEFAULT: 'hsl(var(--primary))',
+                            foreground: 'hsl(var(--primary-foreground))'
+                        },
+                        secondary: {
+                            DEFAULT: 'hsl(var(--secondary))',
+                            foreground: 'hsl(var(--secondary-foreground))'
+                        },
+                        destructive: {
+                            DEFAULT: 'hsl(var(--destructive))',
+                            foreground: 'hsl(var(--destructive-foreground))'
+                        },
+                        muted: {
+                            DEFAULT: 'hsl(var(--muted))',
+                            foreground: 'hsl(var(--muted-foreground))'
+                        },
+                        accent: {
+                            DEFAULT: 'hsl(var(--accent))',
+                            foreground: 'hsl(var(--accent-foreground))'
+                        },
+                        popover: {
+                            DEFAULT: 'hsl(var(--popover))',
+                            foreground: 'hsl(var(--popover-foreground))'
+                        },
+                        card: {
+                            DEFAULT: 'hsl(var(--card))',
+                            foreground: 'hsl(var(--card-foreground))'
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth !important;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            font-family: 'DM Serif Text', serif;
+            margin: 0;
+            padding: 0;
+            background: rgba(255, 254, 239, 0.92);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .bg-background {
+            padding: 1rem;
+            flex: 1;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: transparent;
+        }
+        nav {
+            margin-left: auto;
+        }
+        nav a {
+            display: inline-block;
+            font-weight: bold; 
+            color: #000000;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: rgba(253, 230, 148, 0.92);
+            color: rgb(1, 0, 44);
+        }
+        h1 {
+            text-align: center;
+            margin: 0;
+            padding: 0.5rem 0;
+            font-family: 'DM Serif Text', serif;
+        }
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+        }
+        p {
+            text-align: center;
+            margin: 0;
+            padding: 0.5rem 0;
+            margin-bottom: 20px;
+        }
+        .text-muted {
+            color: #000000;
+        }
+        .text-muted-foreground {
+            color: #1a1717;
+        }
+        .bg-secondary {
+            background-color: #ffcc00;
+        }
+        .text-secondary-foreground {
+            color: #fff;
+        }
+        .hover\:bg-secondary\/80:hover {
+            background-color: rgba(255, 204, 0, 0.8);
+        }
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+        #logo-container {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            gap: 20px;
+        }
+        h4 {
+            color: #4e3f00;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+        }
+        #submit{
+            background-color: #ffcc00;
+            font-weight: bold;
+            color: #000000;
+            padding: 10px 15px; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 10px auto;
+            font-size: 16px;
+        }
+        #submit:hover {
+            background-color: #7c6300;
+        }
+        #logo-container h4 {
+            color: #4e3f00;
+            font-weight: bold; 
+            font-size: 1rem;
+        }
+        .bg-card {
+            background-color: #ffeeac; 
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-background">
+        <header>
+            <div id="logo-container">
+                <img id="logo" src="pic/logo.png" alt="RR AI Vision Logo" style="height: 75px;">
+                <h4>RR AI Vision Model</h4>
+            </div>
+            <nav class="space-x-4">
+                <a href="home.html" class="text-muted hover:text-muted-foreground">Home</a>
+                <a href="https://teachablemachine.withgoogle.com/" class="text-muted hover:text-muted-foreground">Google TM</a>
+                <a href="developer.html" class="text-muted hover:text-muted-foreground">Developer</a>
+                <a href="contact.html" class="text-muted hover:text-muted-foreground">Contact</a>
+            </nav>
+        </header>
+        <div class="container mx-auto p-6">
+            <h1 class="text-2xl font-bold mb-4">Get In Touch With the Developer Now!</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-card p-4 rounded-lg shadow-md">
+                    <h2 class="text-lg font-bold">Phone Number</h2>
+                    <p class="text-muted-foreground">+63 926 170 1302</p>
+                    <p class="text-muted-foreground">+63 992 279 1138</p>
+                </div>
+                <div class="bg-card p-4 rounded-lg shadow-md">
+                    <h2 class="text-lg font-bold">Email</h2>
+                    <p class="text-muted-foreground">rjrubio0000@gmail.com</p>
+                    <p class="text-muted-foreground">luckycharm.rjrubio@gmail.com</p>
+                </div>
+                <div class="bg-card p-4 rounded-lg shadow-md">
+                    <h2 class="text-lg font-bold">Location</h2>
+                    <p class="text-muted-foreground">Luyang, Siquijor, 6225 Siquijor</p>
+                    <p class="text-muted-foreground">Colon Ext., Poblacion 8, 6200 Dumaguete City, Negros Oriental</p>
+                </div>
+                <div class="bg-card p-4 rounded-lg shadow-md">
+                    <h2 class="text-lg font-bold">Class Schedule for COE 432</h2>
+                    <p class="text-muted-foreground">Mondays, Wednesdays and Fridays</p>
+                    <p class="text-muted-foreground">1:00 PM To 04:00 PM</p>
+                </div>
+                
+            </div>
+            <div class="mt-4 flex justify-center space-x-10">
+                <a href="https://t.me/rjayuser2002" class="text-primary hover:underline">Telegram</a>
+                <a href="https://www.instagram.com/rjaya.rubio/" class="ml-4 text-primary hover:underline">Instagram</a>
+                <a href="https://www.facebook.com/rjay.user2002" class="ml-4 text-primary hover:underline">Facebook</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

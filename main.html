@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RR AI Vision Model</title>
+    <link rel="icon" href="pic/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            font-family: 'DM Serif Text', serif;
+            margin: 0;
+            padding: 0;
+            background: rgba(255, 254, 239, 0.92);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .bg-background {
+            padding: 1rem;
+            flex: 1;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        nav a {
+            font-weight: bold;
+            color: #000000;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: rgba(253, 230, 148, 0.92);
+            color: rgb(1, 0, 44);
+        }
+        h1 {
+            text-align: center;
+            margin: 0;
+            padding: 0.5rem 0;
+        }
+        p {
+            text-align: center;
+            margin: 0;
+            padding: 0.5rem 0;
+            margin-bottom: 20px;
+        }
+        #logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        h4 {
+            color: #4e3f00;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .section-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff1bb;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .section-header h2 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #webcam-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #label-container {
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4e3f00;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #6c5d32;
+        }
+        #webcam-container canvas {
+            max-width: 100%;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-background">
+        <header>
+            <div id="logo-container">
+                <img id="logo" src="pic/logo.png" alt="RR AI Vision Logo" style="height: 75px;">
+                <h4>RR AI Vision Model</h4>
+            </div>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="https://teachablemachine.withgoogle.com/">Google TM</a>
+                <a href="developer.html">Developer</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <h1>WELCOME to RR AI Vision Model</h1>  
+        <p>See the Future: Where AI Meets Object Recognition</p>
+        
+        <div class="section-container">
+            <!-- Removed "Model" title as per your request -->
+
+            <!-- Centered "Teachable Machine Image Model" text -->
+            <div style="text-align: center; font-size: 20px; margin-bottom: 20px;">
+                Teachable Machine Image Model
+            </div>
+
+            <!-- Start Button -->
+            <button type="button" onclick="init()">Start</button>
+
+            <!-- Webcam and Label Containers -->
+            <div id="webcam-container"></div>
+            <div id="label-container"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script type="text/javascript">
+        // the link to your model provided by Teachable Machine export panel
+        const URL = "https://teachablemachine.withgoogle.com/models/9P7ipz60X/";
+
+        let model, webcam, labelContainer, maxPredictions;
+
+        // Load the image model and setup the webcam
+        async function init() {
+            const modelURL = URL + "model.json";
+            const metadataURL = URL + "metadata.json";
+
+            // load the model and metadata
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+
+            // Convenience function to setup a webcam
+            const flip = true; // whether to flip the webcam
+            webcam = new tmImage.Webcam(300, 300, flip); // width, height, flip (made webcam larger)
+            await webcam.setup(); // request access to the webcam
+            await webcam.play();
+            window.requestAnimationFrame(loop);
+
+            // append elements to the DOM
+            document.getElementById("webcam-container").appendChild(webcam.canvas);
+            labelContainer = document.getElementById("label-container");
+            for (let i = 0; i < maxPredictions; i++) { // and class labels
+                labelContainer.appendChild(document.createElement("div"));
+            }
+        }
+
+        async function loop() {
+            webcam.update(); // update the webcam frame
+            await predict();
+            window.requestAnimationFrame(loop);
+        }
+
+        // run the webcam image through the image model
+        async function predict() {
+            const prediction = await model.predict(webcam.canvas);
+            for (let i = 0; i < maxPredictions; i++) {
+                const classPrediction = prediction[i].className + ": " + (prediction[i].probability * 100).toFixed(2) + "%"; // Display as percentage
+                labelContainer.childNodes[i].innerHTML = classPrediction;
+            }
+        }
+    </script>
+</body>
+</html>

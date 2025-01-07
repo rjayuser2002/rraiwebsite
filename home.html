@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RR AI Vision Model</title>
+    <link rel="icon" href="pic/logo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth !important;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            font-family: 'DM Serif Text', serif;
+            margin: 0;
+            padding: 0;
+            background: rgba(255, 254, 239, 0.92);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .bg-background {
+            padding: 1rem;
+            flex: 1;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: transparent;
+        }
+        nav {
+            margin-left: auto;
+        }
+        nav a {
+            display: inline-block;
+            font-weight: bold; 
+            color: #000000;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: rgba(253, 230, 148, 0.92);
+            color: rgb(1, 0, 44);
+        }
+        h1 {
+            text-align: center;
+            margin: 0;
+            padding: 0.5rem 0;
+        }
+        p {
+            text-align: center;
+            margin: 0;
+            padding: 0.5rem 0;
+            margin-bottom: 20px;
+        }
+        .text-muted {
+            color: #000000;
+        }
+        .text-muted-foreground {
+            color: #1a1717;
+        }
+        .bg-secondary {
+            background-color: #ffcc00;
+        }
+        .text-secondary-foreground {
+            color: #fff;
+        }
+        .hover\:bg-secondary\/80:hover {
+            background-color: rgba(255, 204, 0, 0.8);
+        }
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+        #logo-container {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            gap: 20px;
+        }
+        h4 {
+            color: #4e3f00;
+            font-family: 'Montserrat', sans-serif;
+
+        }
+        .section-container {
+            border-radius: 5vb;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff1bb;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .section-header {
+            width: 100%;
+            text-align: left;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: center; /* Centering the heading text */
+        }
+
+        .section-header p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .section-image {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center; 
+        }
+
+        .section-image img {
+            max-width: 100%; 
+            height: auto; 
+        }
+
+        .section-button {
+            background-color: #ffcc00;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color: #000000;
+            padding: 15px 24px; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 10px auto;
+            font-size: 16px; 
+        }
+        
+        .section-button:hover {
+            background-color: #7c6300;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-background">
+        <header>
+            <div id="logo-container">
+                <img id="logo" src="pic/logo.png" alt="RR AI Vision Logo" style="height: 75px;">
+                <h4>RR AI Vision Model</h4>
+            </div>
+            <nav class="space-x-4">
+                <a href="home.html" class="text-muted hover:text-muted-foreground">Home</a>
+                <a href="https://teachablemachine.withgoogle.com/" class="text-muted hover:text-muted-foreground">Google TM</a>
+                <a href="developer.html" class="text-muted hover:text-muted-foreground">Developer</a>
+                <a href="contact.html" class="text-muted hover:text-muted-foreground">Contact</a>
+            </nav>
+        </header>
+
+        <h1 class="text-3xl font-bold text-primary">WELCOME to RR AI Vision Model</h1>  
+        <p class="text-muted-foreground">See the Future: Where AI Meets Object Recognition</p>
+        
+        <div class="section-container">
+            <div class="section-content">
+                <div class="section-header">
+                    <h2>What is RR AI Vision Model?</h2>
+                    <p><b>RR AI Vision Model</b> is an advanced AI object detection system designed to harness the power of Google’s Teachable Machine technology. This innovative model aims to revolutionize object recognition, empowering users to leverage cutting-edge AI capabilities for enhanced efficiency and accuracy in various applications. By stepping up innovation in the realm of AI-driven object detection, RR AI Vision Model represents a significant leap forward in the integration of artificial intelligence into practical and transformative solutions.</p>
+                    <p>This project is developed as part of the partial fulfillment of the subject <b>COE 432: Embedded Systems</b>, showcasing the fusion of theoretical knowledge and practical application to drive progress in the field of embedded AI technologies.</p>
+                </div>
+                <div class="section-image">
+                    <img aria-hidden="true" alt="AI Vision Model" src="pic/teachable.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="section-button" onclick="location.href='main.html';">Get Started</button>
+
+    
+</body>
+</html>
